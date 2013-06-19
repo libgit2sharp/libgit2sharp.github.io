@@ -1,0 +1,155 @@
+/*****************************************************************************/
+/* Common
+/*****************************************************************************/
+
+html, body { height: 100%; }
+
+body {
+  background-color: #FFF;
+  font: 12px;
+  font-size: small;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+
+h1 { margin-bottom: 1em; }
+p { margin: 1em 0; }
+
+
+table {
+  font-size: inherit;
+  font: 100%;
+}
+
+.test {
+  border-width: 0px;
+  border-style: solid;
+  border-color: black;
+}
+
+
+/*****************************************************************************/
+/* Site
+/*****************************************************************************/
+
+.container{
+  display: block;
+}
+
+.site {
+  text-align: justify;
+  width: 800px;
+  margin: auto;
+  display: block;
+}
+
+.site .header {
+
+}
+
+.site .core {
+  display: inline-block;
+}
+
+.site .core .menu {
+  width: 190px;
+  display: block;
+  float: left;
+}
+.site .core .content {
+  display: block;
+  float: left;
+  width: 600px;
+}
+
+.site .footer {
+  display: block;
+  overflow: hidden;
+}
+
+.navigation {
+  display: inline;
+}
+
+.navigation .title {
+  float: left;
+  display: block;
+  font-size: 24px;
+  padding-top: 14px;
+  padding-bottom: 10px;
+}
+
+.navigation .github {
+  float: right;
+  display: block;
+}
+
+.pictos {
+  font-family: 'Pictos';
+  color: #D2D2D2;
+  font-weight: normal;
+  font-size: 20px;
+  text-shadow: 0 1px 1px white;
+  padding: 0 8px 0 0; }
+
+.nav-header {
+  margin-top: 20px;
+}
+
+.nav-level-one {
+  padding-left: 10px;
+}
+
+.nav-level-two {
+  padding-left: 20px;
+}
+
+
+/*****************************************************************************/
+/* Menu
+/*****************************************************************************/
+.menu ul {
+  position: relative;
+  list-style-type:none;
+  padding: 0;
+  margin: 0;
+}
+.menu li {
+  padding-left: 10px;
+}
+
+.menu ul>li {
+  font-size: 120%;
+}
+
+.menu ul>li>ul>li {
+  font-size: 100%;
+}
+
+.menu ul>li>ul>li>ul>li{
+  font-size: 80%;
+}
+
+/*****************************************************************************/
+/* Content
+/*****************************************************************************/
+
+.content p {
+  padding-left: 10px;
+}
+
+.content h1 {
+  font-size: 200%;
+}
+
+.content h2 {
+  font-size: 150%;
+}
+
+.content a {
+  color: inherit;
+}
+.content a:hover {
+  color: inherit;
+}

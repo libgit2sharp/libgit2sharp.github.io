@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ site.name }} - {{ page.title }}</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="{{ site.baseurl }}css/syntax.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ site.baseurl }}css/main.css">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="{{ site.baseurl }}js/menu.js"></script>
+
+        <script type="text/javascript">
+
+          function process(arr, ul) {
+            $.each(arr, function (index, value) {
+              var li = $("<li></li>");
+
+              if (value.url) {
+                var a = $('<a></a>');
+                a.attr('href', '{{ site.baseurl }}' + value.url);
+                a.text(value.title);
+
+                li.append(a);
+              } else {
+                li.append(value.title);
+              }
+
+              ul.append(li);
+
+              if (value.children) {
+                var inner_ul = $('<ul></ul>');
+                li.append(inner_ul);
+                process(value.children, inner_ul);
+              }
+            });
+          }
+
+          $(function() {
+
+            // Menu Generation
+            var list = $('#menuItems');
+            var items = get_menu_definition()
+            process(items, list);
+
+          });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <div class="navigation">
+                <div class="title"><a href="{{ site.baseurl }}">{{ site.name }}</a></div>
+                <div class="github"><a href="{{ site.githuburl }}">View it on GitHub</a></div>
+              </div>
+            </div>
+            <div class="core">
+              <div class="menu test">
+                <div>
+                  <ul id="menuItems"/>
+                </div>
+              </div>
+              <div class="content test">
+                <div>
+                  {{ content }}
+                </div>
+              </div>
+            </div>
+            <div class="footer test">
+              <div style="text-align:center">Generated on {{ site.time | date_to_rfc822 }}</div>
+            </div>
+          </div>
+        </div>
+    </body>
+</html>

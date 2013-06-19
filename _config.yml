@@ -1,0 +1,8 @@
+name: LibGit2Sharp/doc
+
+githuburl: https://github.com/libgit2/libgit2sharp
+baseurl: /
+
+pygments: true
+safe: true
+lsi: false
