@@ -11,6 +11,7 @@ Following packages are required to setup Jekyll :
 1. Jekyll
 1. Python & easy_install
 1. Pygments
+1. Test drive your jekyll setup
 
 ## Install Ruby and Dev Kit
 
