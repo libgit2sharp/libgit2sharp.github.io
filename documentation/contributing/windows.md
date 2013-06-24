@@ -3,7 +3,7 @@ layout: default
 title: Windows installation
 ---
 
-# Installation on Windows plateform
+# Installation on Windows platform
 
 Following packages are required to setup Jekyll :
 
