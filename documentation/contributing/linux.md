@@ -3,7 +3,7 @@ layout: default
 title: Linux installation
 ---
 
-# Installation on Unix plateform
+# Installation on Linux plateform
 *The installation was tested on Debian 6.0*
 
 Following packages are required to setup Jekyll :
@@ -14,7 +14,7 @@ Following packages are required to setup Jekyll :
 
 ## Install Ruby
 
-- In a console application, launch the following command to install ruby 1.9.3
+- Launch the following command to install ruby 1.9.3
 
 {% highlight text %}
 user@debian:~$ sudo curl -L https://get.rvm.io | bash -s stable --ruby=1.9.3
