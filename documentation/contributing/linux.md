@@ -3,7 +3,7 @@ layout: default
 title: Linux installation
 ---
 
-# Installation on Linux plateform
+# Installation on Linux platform
 *The installation was tested on Debian 6.0*
 
 Following packages are required to setup Jekyll :
