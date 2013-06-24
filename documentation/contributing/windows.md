@@ -11,6 +11,7 @@ Following packages are required to setup Jekyll :
 1. Jekyll
 1. Python & easy_install
 1. Pygments
+1. Test drive your jekyll setup
 
 ## Install Ruby and Dev Kit
 
@@ -94,16 +95,16 @@ C:\Ruby193\DevKit>
 
 - In order to be as compatible as possible with GitHub's Pages servers, check the [recommended version][1] of the jekyll gem to install.
 
-- Install the recommended version (1.0.2 as of today)
+- Install the recommended version (1.0.3 as of today)
 
 {% highlight text %}
-C:\Ruby193\DevKit>gem install --version '= 1.0.2' jekyll
+C:\Ruby193\DevKit>gem install --version '= 1.0.3' jekyll
 Fetching: liquid-2.5.0.gem (100%)
 Fetching: fast-stemmer-1.0.2.gem (100%)
 ...
 Installing RDoc documentation for safe_yaml-0.7.1...
 Installing RDoc documentation for colorator-0.1...
-Installing RDoc documentation for jekyll-1.0.2...
+Installing RDoc documentation for jekyll-1.0.3...
 
 C:\Ruby193\DevKit>
 {% endhighlight %}
