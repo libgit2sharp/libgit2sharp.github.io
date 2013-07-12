@@ -13,12 +13,45 @@
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.3.1/jquery.cookie.min.js"></script>
         <script src="{{ site.baseurl }}js/menu.js"></script>
 
         <script type="text/javascript">
+          var i = 0;
+
+          function closeHierarchy() {
+            var element = $(this);
+            var id = element.attr('id');
+
+            if (element.is(':checked'))
+            {
+              var papa = element.closest('li');
+              var fils = papa.children('ul');
+              $.cookie(id, 'true', { path: '/' });
+
+              fils.find('input[type="checkbox"]').each(function(index, value){
+                $(value).prop('checked', false);
+                var localid = $(value).attr('id');
+                $.removeCookie(localid, { path: '/' });
+              });
+            }
+            else{
+              $.removeCookie(id, { path: '/' });
+            }
+          }
 
           function process(arr, ul) {
             $.each(arr, function (index, value) {
+              //check
+              if(value.closed)
+              {
+                if(!value.children)
+                  throw new Error("A closed information are present on sheet. It's not a valid configuration");
+
+                if(value.closed != true)
+                  throw new Error("The value expected in the closed information is 'true'");
+              }
+
               var li = $("<li></li>");
 
               if (value.url) {
@@ -29,6 +62,23 @@
                 li.append(a);
               } else {
                 li.append(value.title);
+              }
+
+              if(value.closed == true)
+              {
+                var id = "check-" + i++;
+                var checkbox = $('<input type="checkbox" class="checkbox" />');
+                checkbox.click(closeHierarchy);
+                checkbox.attr("id", id);
+                if($.cookie(id))
+                {
+                  checkbox.prop('checked', true);
+                }
+                li.append(checkbox);
+
+                var label = $('<label></label>');
+                label.attr("for", id);
+                li.append(label)
               }
 
               ul.append(li);
