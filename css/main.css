@@ -131,6 +131,35 @@ table {
   font-size: 80%;
 }
 
+.menu input ~ ul {
+  display: none;
+}
+
+.menu input[type="checkbox"]:checked ~ ul {
+  display: block;
+}
+
+.menu label {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  line-height: 16px;
+  vertical-align: middle;
+  content: "";
+  background: url("../images/triangles.png") no-repeat;
+  background-position: 0 0px;
+  cursor: pointer;
+}
+
+.menu input[type="checkbox"]:checked + label {
+  background-position: 0 -16px;
+}
+
+.menu .checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
 /*****************************************************************************/
 /* Content
 /*****************************************************************************/
