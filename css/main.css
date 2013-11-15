@@ -5,7 +5,7 @@
 html, body { height: 100%; }
 
 body {
-  background-color: #FFF;
+  background: #f0efe7 url(/images/body.jpg);
   font: 12px;
   font-size: small;
   text-align: center;
