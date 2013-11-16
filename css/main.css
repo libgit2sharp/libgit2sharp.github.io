@@ -5,10 +5,11 @@
 html, body { height: 100%; }
 
 body {
-  background-color: #FFF;
-  font: 12px;
-  font-size: small;
-  text-align: center;
+  font-size: 14px;
+  line-height: 22px;
+  font-family: "adelle", Georgia, "Times New Roman", serif;
+  color: #4e443c;
+  background: #f0efe7 url(/images/body.jpg);
 }
 
 h1, h2, h3, h4, h5, h6 { font-size: 100%; }
@@ -28,6 +29,10 @@ table {
   border-color: black;
 }
 
+a {
+  color: #1b75a3;
+}
+
 
 /*****************************************************************************/
 /* Site
@@ -38,8 +43,7 @@ table {
 }
 
 .site {
-  text-align: justify;
-  width: 800px;
+  width: 900px;
   margin: auto;
   display: block;
 }
@@ -53,9 +57,10 @@ table {
 }
 
 .site .core .menu {
-  width: 190px;
+  width: 200px;
   display: block;
   float: left;
+  padding-top: 20px;
 }
 .site .core .content {
   display: block;
@@ -83,6 +88,9 @@ table {
 .navigation .github {
   float: right;
   display: block;
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .pictos {
@@ -117,6 +125,10 @@ table {
 }
 .menu li {
   padding-left: 10px;
+}
+
+ul#menuItems {
+  margin-left: -10px;
 }
 
 .menu ul>li {
@@ -164,6 +176,10 @@ table {
 /* Content
 /*****************************************************************************/
 
+.content {
+  margin-left: 10px;
+}
+
 .content p {
   padding-left: 10px;
 }
@@ -174,11 +190,4 @@ table {
 
 .content h2 {
   font-size: 150%;
-}
-
-.content a {
-  color: inherit;
-}
-.content a:hover {
-  color: inherit;
 }

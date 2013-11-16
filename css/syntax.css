@@ -1,3 +1,12 @@
+code, pre {
+  font-family: Courier, monospace !important;
+  padding: 1px 2px;
+}
+
+pre code {
+	padding: 0;
+}
+
 .highlight  {
 	background-color: #111111;
 	color: #ffffff;
