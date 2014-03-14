@@ -23,12 +23,6 @@ table {
   font: 100%;
 }
 
-.test {
-  border-width: 0px;
-  border-style: solid;
-  border-color: black;
-}
-
 a {
   color: #1b75a3;
 }
@@ -65,7 +59,7 @@ a {
 .site .core .content {
   display: block;
   float: left;
-  width: 600px;
+  width: 680px;
 }
 
 .site .footer {
@@ -143,15 +137,7 @@ ul#menuItems {
   font-size: 80%;
 }
 
-.menu input ~ ul {
-  display: none;
-}
-
-.menu input[type="checkbox"]:checked ~ ul {
-  display: block;
-}
-
-.menu label {
+.arrow_closed {
   display: inline-block;
   height: 16px;
   width: 16px;
@@ -163,13 +149,9 @@ ul#menuItems {
   cursor: pointer;
 }
 
-.menu input[type="checkbox"]:checked + label {
+.arrow_opened {
+  display: inline-block;
   background-position: 0 -16px;
-}
-
-.menu .checkbox {
-  position: absolute;
-  opacity: 0;
 }
 
 /*****************************************************************************/

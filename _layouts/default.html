@@ -13,116 +13,10 @@
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+        <script src="{{ site.baseurl }}js/site.js"></script>
         <script src="{{ site.baseurl }}js/menu.js"></script>
 
         <script type="text/javascript">
-          var i = 0;
-
-          function closeHierarchy() {
-            var element = $(this);
-
-            if (element.is(':checked'))
-            {
-              var descendants = element.closest('li').children('ul');
-
-              descendants.find('input[type="checkbox"]').each(function(index, value){
-                $(value).prop('checked', false);
-              });
-            }
-          }
-
-          function getMenuCode(baseMenuCode, code)
-          {
-            if (!code)
-            {
-              return baseMenuCode;
-            }
-
-            if (baseMenuCode == '')
-            {
-              return code;
-            }
-
-            return baseMenuCode + '-' + code;
-          }
-
-          function process(arr, ul, baseMenuCode, menuHierarchy) {
-
-            $.each(arr, function (index, value) {
-              //check
-              if(value.closed)
-              {
-                if(!value.children)
-                  throw new Error("A closed information are present on sheet. It's not a valid configuration");
-
-                if(value.closed != true)
-                  throw new Error("The value expected in the closed information is 'true'");
-
-                if(!value.code)
-                  throw new Error("Missing code for parent tree structure '" + value.title + "'");
-
-                if(value.code.indexOf('-') != -1)
-                  throw new Error("No dash ('-') is allowed within a code. Please fix '" + value.code + "'");
-              }
-
-              var li = $("<li></li>");
-
-              if (value.url) {
-
-                var codeForUrl = getMenuCode(baseMenuCode, value.code);
-                var url = '{{ site.baseurl }}' + value.url;
-                if(codeForUrl != undefined &&  codeForUrl.length > 0)
-                {
-                  url = url + "?menu=" + codeForUrl;
-                }
-
-                var a = $('<a></a>');
-                a.attr('href', url);
-                a.text(value.title);
-
-                li.append(a);
-              } else {
-                li.append(value.title);
-              }
-
-              if(value.closed == true)
-              {
-                var id = "check-" + i++;
-                var checkbox = $('<input type="checkbox" class="checkbox" />');
-                checkbox.click(closeHierarchy);
-                checkbox.attr("id", id);
-
-                if(value.code == menuHierarchy[menuHierarchy.length-1])
-                {
-                  checkbox.prop('checked', true);
-                  menuHierarchy.pop();
-                }
-
-                li.append(checkbox);
-
-                var label = $('<label></label>');
-                label.attr("for", id);
-                li.append(label)
-              }
-
-              ul.append(li);
-
-              if (value.children) {
-                var inner_ul = $('<ul></ul>');
-                li.append(inner_ul);
-                process(value.children, inner_ul, getMenuCode(baseMenuCode, value.code), menuHierarchy);
-              }
-            });
-          }
-
-          /* from http://stackoverflow.com/a/901144 */
-          function getParameterByName(name) {
-              name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-              var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                  results = regex.exec(location.search);
-              return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-          }
-
           $(function() {
 
             var menuHierarchy = getParameterByName('menu').split("-").reverse();
@@ -134,7 +28,7 @@
             // Menu Generation
             var list = $('#menuItems');
             var items = get_menu_definition()
-            process(items, list, '', menuHierarchy);
+            process('{{ site.baseurl }}', items, list, '', menuHierarchy);
 
           });
         </script>
@@ -149,18 +43,18 @@
               </div>
             </div>
             <div class="core">
-              <div class="menu test">
+              <div class="menu">
                 <div>
                   <ul id="menuItems"/>
                 </div>
               </div>
-              <div class="content test">
+              <div class="content">
                 <div>
                   {{ content }}
                 </div>
               </div>
             </div>
-            <div class="footer test">
+            <div class="footer">
               <div style="text-align:center">Generated <span id="generatedOn" title="{{ site.time }}">{{ site.time }}</span></div>
             </div>
           </div>

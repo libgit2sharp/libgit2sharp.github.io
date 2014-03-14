@@ -26,7 +26,8 @@ user@debian:~$ sudo curl -L https://get.rvm.io | bash -s stable --ruby=1.9.3
 Saving wrappers to '/home/user/.rvm/bin'........
 
   * To start using RVM you need to run `source /home/user/.rvm/scripts/rvm`
-    in all your open shell windows, in rare cases you need to reopen all shell windows.
+    in all your open shell windows, in rare cases you need to reopen all
+    shell windows.
 
 user@debian:~$ ruby --version
 ruby 1.9.3p429 (2013-05-15 revision 40747) [x86_64-linux]
